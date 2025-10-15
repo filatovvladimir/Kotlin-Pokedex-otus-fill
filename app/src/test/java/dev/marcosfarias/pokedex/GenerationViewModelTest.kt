@@ -5,6 +5,7 @@ import dev.marcosfarias.pokedex.model.Generation
 import dev.marcosfarias.pokedex.ui.generation.GenerationViewModel
 import io.mockk.spyk
 import io.mockk.unmockkAll
+import io.qameta.allure.Description
 import org.junit.*
 
 class GenerationViewModelTest {
@@ -20,6 +21,7 @@ class GenerationViewModelTest {
     }
 
     @Test
+    @Description("Проверяет получение списка поколений покемонов")
     fun `GIVEN list generation WHEN call function to get generations THEN result as expected`() {
         // GIVEN
         val expected = listOf(
