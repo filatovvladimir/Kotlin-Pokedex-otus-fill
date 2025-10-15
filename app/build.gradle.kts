@@ -4,6 +4,7 @@ plugins {
     id("kotlin-parcelize")
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
+    id("io.qameta.allure") version "2.11.2"
 }
 apply(from = "../ktlint.gradle.kts")
 
@@ -13,7 +14,7 @@ android {
     defaultConfig {
         applicationId = "dev.marcosfarias.pokedex"
         minSdk = 23
-        targetSdk = 33
+        targetSdk = 32
         versionCode = 1
         versionName = "1.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
@@ -38,6 +39,10 @@ android {
         viewBinding = true
     }
     namespace = "dev.marcosfarias.pokedex"
+    lint {
+        abortOnError = true
+        baseline = file("lint-baseline.xml")
+    }
 }
 
 dependencies {
@@ -87,4 +92,7 @@ dependencies {
     androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.4")
     testImplementation("io.mockk:mockk:1.12.4")
     testImplementation("io.mockk:mockk-agent-jvm:1.12.4")
+    testImplementation(kotlin("test"))
+    //Allure
+    testImplementation("io.qameta.allure:allure-kotlin-junit4:2.4.0")
 }
