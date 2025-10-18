@@ -44,6 +44,7 @@ android {
         abortOnError = true
         baseline = file("lint-baseline.xml")
     }
+
 }
 
 dependencies {
@@ -90,9 +91,7 @@ dependencies {
     debugImplementation("androidx.fragment:fragment-testing:1.5.5")
     testImplementation("androidx.arch.core:core-testing:2.2.0")
     androidTestImplementation("io.mockk:mockk-android:1.12.4")
-    androidTestImplementation("io.mockk:mockk-agent-jvm:1.12.4")
     testImplementation("io.mockk:mockk:1.12.4")
-    testImplementation("io.mockk:mockk-agent-jvm:1.12.4")
     testImplementation(kotlin("test"))
     //Allure
     testImplementation("io.qameta.allure:allure-kotlin-junit4:2.4.0")
@@ -104,5 +103,4 @@ kapt {
 }
 
 kover {
-    // Базовая конфигурация - можно оставить пустой
 }
