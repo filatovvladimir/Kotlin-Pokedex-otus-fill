@@ -1,0 +1,146 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > GenerationViewModel</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">dev.marcosfarias.pokedex.ui.generation</a>
+</div>
+
+<h1>Coverage Summary for Class: GenerationViewModel (dev.marcosfarias.pokedex.ui.generation)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+<th class="coverageStat 
+">
+  Instruction, %
+</th>
+</tr>
+<tr>
+  <td class="name">GenerationViewModel</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (1/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (2/2)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (12/12)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    100%
+  </span>
+  <span class="absValue">
+    (90/90)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package dev.marcosfarias.pokedex.ui.generation
+&nbsp;
+&nbsp;import androidx.lifecycle.LiveData
+&nbsp;import androidx.lifecycle.MutableLiveData
+&nbsp;import androidx.lifecycle.ViewModel
+&nbsp;import dev.marcosfarias.pokedex.R
+&nbsp;import dev.marcosfarias.pokedex.model.Generation
+&nbsp;
+<b class="fc">&nbsp;class GenerationViewModel : ViewModel() {</b>
+&nbsp;
+<b class="fc">&nbsp;    private val listGeneration = MutableLiveData&lt;List&lt;Generation&gt;&gt;()</b>
+&nbsp;
+&nbsp;    fun getListGeneration(): LiveData&lt;List&lt;Generation&gt;&gt; {
+<b class="fc">&nbsp;        listGeneration.value = listOf(</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_1, image = R.drawable.gen1),</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_2, image = R.drawable.gen2),</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_3, image = R.drawable.gen3),</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_4, image = R.drawable.gen4),</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_5, image = R.drawable.gen5),</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_6, image = R.drawable.gen6),</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_7, image = R.drawable.gen7),</b>
+<b class="fc">&nbsp;            Generation(id = 1, title = R.string.generation_item_8, image = R.drawable.gen8)</b>
+&nbsp;        )
+<b class="fc">&nbsp;        return listGeneration</b>
+&nbsp;    }
+&nbsp;}
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-10-18 21:13</div>
+</div>
+</body>
+</html>

@@ -5,6 +5,7 @@ plugins {
     id("kotlin-kapt")
     id("androidx.navigation.safeargs.kotlin")
     id("io.qameta.allure") version "2.11.2"
+    id("org.jetbrains.kotlinx.kover") version "0.6.1"
 }
 apply(from = "../ktlint.gradle.kts")
 
@@ -29,11 +30,11 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
-    kotlinOptions {
-        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    kotlin {
+        jvmToolchain(11)
     }
     buildFeatures {
         viewBinding = true
@@ -95,4 +96,13 @@ dependencies {
     testImplementation(kotlin("test"))
     //Allure
     testImplementation("io.qameta.allure:allure-kotlin-junit4:2.4.0")
+}
+
+kapt {
+    correctErrorTypes = true
+    useBuildCache = true
+}
+
+kover {
+    // Базовая конфигурация - можно оставить пустой
 }

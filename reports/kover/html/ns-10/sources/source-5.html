@@ -1,0 +1,160 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > PokemonAdapterKt</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">dev.marcosfarias.pokedex.ui.pokedex</a>
+</div>
+
+<h1>Coverage Summary for Class: PokemonAdapterKt (dev.marcosfarias.pokedex.ui.pokedex)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+</tr>
+<tr>
+  <td class="name">PokemonAdapterKt</td>
+    <td class="coverageStat"/>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package dev.marcosfarias.pokedex.ui.pokedex
+&nbsp;
+&nbsp;import android.graphics.PorterDuff
+&nbsp;import android.graphics.PorterDuffColorFilter
+&nbsp;import android.view.LayoutInflater
+&nbsp;import android.view.View
+&nbsp;import android.view.ViewGroup
+&nbsp;import android.widget.ImageView
+&nbsp;import androidx.core.view.isVisible
+&nbsp;import androidx.recyclerview.widget.RecyclerView
+&nbsp;import dev.marcosfarias.pokedex.GlideApp
+&nbsp;import dev.marcosfarias.pokedex.R
+&nbsp;import dev.marcosfarias.pokedex.databinding.ItemPokemonBinding
+&nbsp;import dev.marcosfarias.pokedex.model.Pokemon
+&nbsp;import dev.marcosfarias.pokedex.utils.ImageLoadingListener
+&nbsp;import dev.marcosfarias.pokedex.utils.PokemonColorUtil
+&nbsp;
+&nbsp;class PokemonAdapter(
+&nbsp;    private val list: List&lt;Pokemon&gt;,
+&nbsp;    private val itemClickedListener: OnItemClickedListener? = null,
+&nbsp;    private val imageLoadedListener: OnImageLoadedListener? = null
+&nbsp;) : RecyclerView.Adapter&lt;PokemonAdapter.ViewHolder&gt;() {
+&nbsp;
+&nbsp;    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+&nbsp;
+&nbsp;        val viewBinding = ItemPokemonBinding.bind(itemView)
+&nbsp;
+&nbsp;        fun bindView(
+&nbsp;            item: Pokemon,
+&nbsp;            itemClickedListener: OnItemClickedListener?,
+&nbsp;            imageLoadedListener: OnImageLoadedListener?
+&nbsp;        ) {
+&nbsp;
+&nbsp;            viewBinding.textViewName.text = item.name
+&nbsp;            viewBinding.textViewID.text = item.id
+&nbsp;
+&nbsp;            val color = PokemonColorUtil(itemView.context).getPokemonColor(item.typeofpokemon)
+&nbsp;            viewBinding.relativeLayoutBackground.background.colorFilter =
+&nbsp;                PorterDuffColorFilter(color, PorterDuff.Mode.SRC_ATOP)
+&nbsp;
+&nbsp;            item.typeofpokemon?.getOrNull(0).let { firstType -&gt;
+&nbsp;                viewBinding.textViewType3.text = firstType
+&nbsp;                viewBinding.textViewType3.isVisible = firstType != null
+&nbsp;            }
+&nbsp;
+&nbsp;            item.typeofpokemon?.getOrNull(1).let { secondType -&gt;
+&nbsp;                viewBinding.textViewType2.text = secondType
+&nbsp;                viewBinding.textViewType2.isVisible = secondType != null
+&nbsp;            }
+&nbsp;
+&nbsp;            item.typeofpokemon?.getOrNull(2).let { thirdType -&gt;
+&nbsp;                viewBinding.textViewType1.text = thirdType
+&nbsp;                viewBinding.textViewType1.isVisible = thirdType != null
+&nbsp;            }
+&nbsp;
+&nbsp;            GlideApp.with(itemView.context)
+&nbsp;                .load(item.imageurl)
+&nbsp;                .placeholder(android.R.color.transparent)
+&nbsp;                .addListener(ImageLoadingListener {
+&nbsp;                    imageLoadedListener?.invoke(item, viewBinding.imageView)
+&nbsp;                })
+&nbsp;                .into(viewBinding.imageView)
+&nbsp;
+&nbsp;            viewBinding.imageView.transitionName = item.name
+&nbsp;            itemView.setOnClickListener {
+&nbsp;                itemClickedListener?.invoke(item, this)
+&nbsp;            }
+&nbsp;        }
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
+&nbsp;        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_pokemon, parent, false)
+&nbsp;        return ViewHolder(view)
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+&nbsp;        val item = list[position]
+&nbsp;        holder.bindView(item, itemClickedListener, imageLoadedListener)
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun getItemCount(): Int {
+&nbsp;        return list.size
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;typealias OnImageLoadedListener = (pokemon: Pokemon, imageView: ImageView) -&gt; Unit
+&nbsp;
+&nbsp;typealias OnItemClickedListener = (pokemon: Pokemon, viewHolder: PokemonAdapter.ViewHolder) -&gt; Unit
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-10-18 21:13</div>
+</div>
+</body>
+</html>
