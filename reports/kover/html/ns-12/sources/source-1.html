@@ -1,0 +1,153 @@
+
+
+
+<!DOCTYPE html>
+<html id="htmlId">
+<head>
+  <title>Coverage Report > ImageLoadingListener</title>
+  <style type="text/css">
+    @import "../../css/coverage.css";
+    @import "../../css/idea.min.css";
+  </style>
+  <script type="text/javascript" src="../../js/highlight.min.js"></script>
+  <script type="text/javascript" src="../../js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body>
+<div class="content">
+<div class="breadCrumbs">
+Current scope:     <a href="../../index.html">all classes</a>
+    <span class="separator">|</span>
+    <a href="../index.html">dev.marcosfarias.pokedex.utils</a>
+</div>
+
+<h1>Coverage Summary for Class: ImageLoadingListener (dev.marcosfarias.pokedex.utils)</h1>
+
+<table class="coverageStats">
+<tr>
+  <th class="name">Class</th>
+<th class="coverageStat 
+">
+  Class, %
+</th>
+<th class="coverageStat 
+">
+  Method, %
+</th>
+<th class="coverageStat 
+">
+  Branch, %
+</th>
+<th class="coverageStat 
+">
+  Line, %
+</th>
+<th class="coverageStat 
+">
+  Instruction, %
+</th>
+</tr>
+<tr>
+  <td class="name">ImageLoadingListener</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/1)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/3)
+  </span>
+</td>
+    <td class="coverageStat"/>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/5)
+  </span>
+</td>
+<td class="coverageStat">
+  <span class="percent">
+    0%
+  </span>
+  <span class="absValue">
+    (0/15)
+  </span>
+</td>
+</tr>
+
+</table>
+
+<br/>
+<br/>
+
+
+<pre>
+<code class="sourceCode" id="sourceCode">&nbsp;package dev.marcosfarias.pokedex.utils
+&nbsp;
+&nbsp;import android.graphics.drawable.Drawable
+&nbsp;import com.bumptech.glide.load.DataSource
+&nbsp;import com.bumptech.glide.load.engine.GlideException
+&nbsp;import com.bumptech.glide.request.RequestListener
+&nbsp;import com.bumptech.glide.request.target.Target
+&nbsp;
+<b class="nc">&nbsp;class ImageLoadingListener(private val listener: OnLoadFinishedListener) :</b>
+&nbsp;    RequestListener&lt;Drawable&gt; {
+&nbsp;    override fun onLoadFailed(
+&nbsp;        e: GlideException?,
+&nbsp;        model: Any?,
+&nbsp;        target: Target&lt;Drawable&gt;?,
+&nbsp;        isFirstResource: Boolean
+&nbsp;    ): Boolean {
+<b class="nc">&nbsp;        listener.invoke()</b>
+<b class="nc">&nbsp;        return false</b>
+&nbsp;    }
+&nbsp;
+&nbsp;    override fun onResourceReady(
+&nbsp;        resource: Drawable?,
+&nbsp;        model: Any?,
+&nbsp;        target: Target&lt;Drawable&gt;?,
+&nbsp;        dataSource: DataSource?,
+&nbsp;        isFirstResource: Boolean
+&nbsp;    ): Boolean {
+<b class="nc">&nbsp;        listener.invoke()</b>
+<b class="nc">&nbsp;        return false</b>
+&nbsp;    }
+&nbsp;}
+&nbsp;
+&nbsp;typealias OnLoadFinishedListener = () -&gt; Unit
+</code>
+</pre>
+</div>
+
+<script type="text/javascript">
+(function() {
+    var msie = false, msie9 = false;
+    /*@cc_on
+      msie = true;
+      @if (@_jscript_version >= 9)
+        msie9 = true;
+      @end
+    @*/
+
+    if (!msie || msie && msie9) {
+      hljs.highlightAll()
+      hljs.initLineNumbersOnLoad();
+    }
+})();
+</script>
+
+<div class="footer">
+    
+    <div style="float:right;">generated on 2025-10-18 21:13</div>
+</div>
+</body>
+</html>
