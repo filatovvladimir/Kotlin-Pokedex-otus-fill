@@ -54,8 +54,6 @@ class HomeViewModelTest {
         Assert.assertEquals(expectedSize, result.value!!.size)
     }
 
-    // НОВЫЕ ТЕСТЫ
-
     @Test
     @Description("Проверяет корректность структуры данных меню")
     fun `GIVEN HomeViewModel WHEN get menu THEN menu items have correct structure`() {

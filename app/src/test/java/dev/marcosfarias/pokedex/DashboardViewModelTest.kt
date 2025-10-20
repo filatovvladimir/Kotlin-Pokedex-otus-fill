@@ -59,8 +59,6 @@ class DashboardViewModelTest {
         Assert.assertEquals(expected, result)
     }
 
-    // НОВЫЕ ТЕСТЫ
-
     @Test
     @Description("Проверяет получение покемона по ID с корректными данными")
     fun `GIVEN DashboardViewModel WHEN get pokemon by id THEN return correct pokemon`() {
